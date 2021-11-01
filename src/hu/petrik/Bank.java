@@ -42,7 +42,7 @@ public class Bank {
         }
         return legnagyobb;
     }
-    public long osszHitel(){
+    public long osszHitelKeret(){
         int ossezg= 0;
         for (Szamla szamla:szamlaList) {
             ossezg += ((HitelSzamla) szamla).getHitelKeret();
