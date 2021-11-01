@@ -11,15 +11,15 @@ public abstract class Szamla extends BankiSzolgaltatas {
     public double getAktualisEgyenleg() {
         return aktualisEgyenleg;
     }
-
-    protected void setAktualisEgyenleg(double osszeg) {
-        this.aktualisEgyenleg = osszeg;
-    }
     public void befizet(double osszeg){
         if(osszeg>0){
             this.aktualisEgyenleg+=osszeg;
         }
     }
+    protected void setAktualisEgyenleg(double osszeg) {
+        this.aktualisEgyenleg = osszeg;
+    }
+
     public boolean kivesz(double osszeg){
         if (osszeg >= 0){
             this.aktualisEgyenleg -= osszeg;
@@ -27,5 +27,8 @@ public abstract class Szamla extends BankiSzolgaltatas {
         }else{
             return false;
         }
+    }
+    public Kartya ujKartya(String kartyaszam){
+        return new Kartya(this.getTulajdonos(), this, kartyaszam);
     }
 }

@@ -2,8 +2,8 @@ package hu.petrik;
 
 public class Kartya extends BankiSzolgaltatas {
 
-    private  final Szamla szamla;
-    private  final String kartyaszam;
+    private final Szamla szamla;
+    private final String kartyaszam;
 
     public Kartya(Tulajdonos tulajdonos, Szamla szamla, String kartyaszam) {
         super(tulajdonos);
