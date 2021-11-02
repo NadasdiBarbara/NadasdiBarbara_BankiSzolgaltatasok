@@ -5,21 +5,23 @@ import java.util.List;
 
 public class Bank {
 
-    List<Szamla> szamlaList = new ArrayList<>();
+    private Szamla[] szamlaList;
+    private int index = 0;
 
-    public  Bank(){
-
+    public  Bank(int mennyiseg){
+        this.szamlaList = new Szamla[mennyiseg];
     }
     public Szamla szamlaNyitas(Tulajdonos tulajdonos, int hitelkeret){
         Szamla szamla;
         if (hitelkeret > 0){
             HitelSzamla hitelszamla = new HitelSzamla(tulajdonos,hitelkeret);
-            szamlaList.add(hitelszamla);
             szamla = hitelszamla;
+            index++;
+
         }else{
             MegtakaritasiSzamla megtakaritasszamla = new MegtakaritasiSzamla(tulajdonos);
-            szamlaList.add(megtakaritasszamla);
             szamla = megtakaritasszamla;
+            index++;
         }
         return szamla;
     }
@@ -33,15 +35,14 @@ public class Bank {
         return egyeneg;
     }
 
-    public Szamla legnagyobbEgyenleguSzamlal(Tulajdonos tulajdonos){
-        Szamla legnagyobb = szamlaList.get(0);
-        for(Szamla szamla : szamlaList){
-            if (szamla.getAktualisEgyenleg() >legnagyobb.getAktualisEgyenleg()){
-                legnagyobb = szamla;
-            }
+   /* HIBA :(
+   public Szamla legnagyobbEgyenleguSzamlal(Tulajdonos tulajdonos){
+        Szamla legnagyobb ;
+        for (int i = 0; i < szamlaList.length; i++) {
+            if (szamlaList[i].getAktualisEgyenleg() > szamlaList[legnagyobb].getEgyenleg()) legnagyobb = i;
         }
         return legnagyobb;
-    }
+    }*/
     public long osszHitelKeret(){
         int ossezg= 0;
         for (Szamla szamla:szamlaList) {

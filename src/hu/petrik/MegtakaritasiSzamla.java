@@ -29,5 +29,6 @@ public class MegtakaritasiSzamla extends Szamla {
     }
     public void kamatjovairas(){
         setAktualisEgyenleg(getAktualisEgyenleg()*kamat);
+
     }
 }

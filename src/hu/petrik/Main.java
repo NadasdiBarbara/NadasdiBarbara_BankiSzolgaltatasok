@@ -19,6 +19,9 @@ public class Main {
     h2.befizet(10400.0);
     h3.befizet(7888.0);
 
+    m1.befizet(10600.0);
+    m2.befizet(25000.0);
+
 
         System.out.println(m1.getAktualisEgyenleg());
         m1.kamatjovairas();
@@ -27,7 +30,7 @@ public class Main {
         System.out.println(m3.getAktualisEgyenleg());
         m3.kamatjovairas();
 
-        Bank b1 = new Bank();
+        Bank b1 = new Bank(6);
         b1.szamlaNyitas(t1,100000);
         b1.szamlaNyitas(t2,50000);
         b1.szamlaNyitas(t3,99999);
@@ -37,9 +40,9 @@ public class Main {
 
 
         System.out.println(b1.osszHitelKeret());
-        Szamla ln = b1.legnagyobbEgyenleguSzamlal(t1);
-        System.out.println(ln.getTulajdonos().toString());
-        System.out.println(ln.getAktualisEgyenleg());
+        //Szamla ln = b1.legnagyobbEgyenleguSzamlal(t1);
+        //System.out.println(ln.getTulajdonos().toString());
+        //System.out.println(ln.getAktualisEgyenleg());
         System.out.println(b1.osszEgyenleg(t1));
 
     }
